@@ -10,10 +10,12 @@ CREATE PROCEDURE addbonus(
 )
 BEGIN
     DECLARE projectId INT;
-    SELECT id INTO projectId FROM projects
+    SELECT id INTO projectId
+    FROM projects
     WHERE name = project_name;
     IF projectId is NULL THEN
-        INSERT INTO projects (name) VALUES (project_name);
+        INSERT INTO projects (name)
+        VALUES (project_name);
         SET projectId = LAST_INSERT_ID();
     END IF;
     INSERT INTO corrections (user_id, project_id, score)
