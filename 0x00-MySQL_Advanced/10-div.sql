@@ -9,10 +9,10 @@ RETURNS FLOAT
 DETERMINISTIC
 BEGIN
     DECLARE Ans INT;
-    IF b != 0 THEN
-        SET Ans = a / b;
-    ELSE
+    IF b == 0 THEN
         SET Ans = 0;
+    ELSE
+        SET Ans = a / b;
     END IF;
     RETURN Ans;
 END //
