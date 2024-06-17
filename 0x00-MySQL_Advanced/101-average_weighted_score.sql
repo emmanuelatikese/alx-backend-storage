@@ -7,14 +7,15 @@ DELIMITER //
 CREATE PROCEDURE ComputeAverageWeightedScoreForUsers()
 
 BEGIN
-DECLARE Ans FLOAT;
     UPDATE users U
-    (SELECT SUM(cor.score * pro.weight) / SUM(pro.weight) INTO Ans
-    FROM corrections cor
-    JOIN projects pro ON cor.project_id = pro.id
-    GROUP BY cor.user_id) AS C
-    SET U.average_score = Ans
-    WHERE U.id = C.user_id;
+    JOIN (
+        SELECT cor.user_id, 
+               SUM(cor.score * pro.weight) / SUM(pro.weight) AS Ans
+        FROM corrections cor
+        JOIN projects pro ON cor.project_id = pro.id
+        GROUP BY cor.user_id
+    ) AS C ON U.id = C.user_id
+    SET U.average_score = C.Ans;
 END //
 
 DELIMITER ;
