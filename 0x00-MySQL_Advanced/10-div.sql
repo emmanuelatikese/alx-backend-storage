@@ -11,10 +11,10 @@ BEGIN
     DECLARE Ans INT;
     IF b != 0 THEN
         SET Ans = a / b;
-        RETURN Ans;
     ELSE
-        RETURN 0;
+        SET Ans = 0;
     END IF;
+    RETURN Ans;
 END //
 
 DELIMITER ;
