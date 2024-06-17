@@ -9,7 +9,7 @@ RETURNS FLOAT
 DETERMINISTIC
 BEGIN
     DECLARE Ans FLOAT;
-    IF b == 0 THEN
+    IF b = 0 THEN
         SET Ans = 0;
     ELSE
         SET Ans = a / b;
