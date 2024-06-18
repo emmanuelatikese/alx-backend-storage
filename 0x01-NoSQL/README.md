@@ -1,0 +1,1 @@
+### this is all about mongo db using shell and python lib.
