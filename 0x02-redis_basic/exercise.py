@@ -9,6 +9,7 @@ class Cache:
     '''the class is initialize'''
     def __init__(self) -> None:
         self._redis = redis.Redis()
+        self._redis.flushdb()
 
     def store(self, data: Union[int, float, bytes, str]) -> str:
         '''creating a key'''
