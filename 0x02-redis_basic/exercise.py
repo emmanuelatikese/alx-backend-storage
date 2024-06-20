@@ -7,7 +7,7 @@ from typing import Union
 
 class Cache:
     '''the class is initialize'''
-    def __init__(self) -> None:
+    def __init__(self):
         '''Here goes nothing'''
         self._redis = redis.Redis()
         self._redis.flushdb()
