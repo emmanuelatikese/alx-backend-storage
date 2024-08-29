@@ -4,6 +4,7 @@ Main file
 """
 import redis
 
+
 Cache = __import__('exercise').Cache
 
 cache = Cache()
